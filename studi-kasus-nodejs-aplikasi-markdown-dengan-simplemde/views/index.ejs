@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-4">
+        <a href="/add" class="btn btn-success btn-lg">Tambah Artikel</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <% data.results.forEach((item, index) => {%>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><%= item.title %></h5>
+                <p class="card-text"><%= item.excerpt %></p>
+
+                <hr>
+                <a href="/delete/<%= item._id %>" class="btn btn-danger float-right mr-2">Hapus</a>
+                <a href="/edit/<%= item._id %>" class="btn btn-warning float-right mr-2">Ubah</a>
+                <a href="/show/<%= item._id %>" class="btn btn-primary float-right mr-2">Tampilkan</a>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>

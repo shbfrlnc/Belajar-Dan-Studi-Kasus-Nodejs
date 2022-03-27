@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="/public/favicon.png" />
+
+    <title>
+        Member Area
+    </title>
+
+    <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app" class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
+            <a class="navbar-brand" href="/member">
+                Member Area
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/member">Member Area for All</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/member/for-member-level-1">Member Level 1 Only</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/member/for-member-level-2">Member Level 2 Only</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <h1>Selamat datang di Member Area for All, <%= username %>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/vendor/jquery/jquery.js"></script>
+    <script src="/public/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        $(window).on('load', function () {
+            $('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false });
+        });
+    </script>
+</body>
+
+</html>

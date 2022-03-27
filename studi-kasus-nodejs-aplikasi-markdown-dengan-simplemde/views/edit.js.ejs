@@ -1,0 +1,57 @@
+<script>
+    let imagePath;
+    let codeMirror;
+    const simplemde = new SimpleMDE({
+        element: $("#" + "txa-article-content")[0],
+        toolbar: [
+            "bold",
+            "italic",
+            "heading",
+            "strikethrough",
+            "|",
+            "quote",
+            "unordered-list",
+            "ordered-list",
+            "|",
+            "link",
+            "table",
+            "image",
+            "|",
+            "preview",
+            "|",
+            {
+                name: "image-upload",
+                action: function customFunction(editor) {
+                    $('#modal-get-image').modal({ backdrop: 'static', keyboard: false });
+                    codeMirror = editor.codemirror;
+                },
+                className: "fa fa-file",
+                title: "Image Upload",
+            }
+        ]
+    });
+
+    $('#modal-get-image').on('shown.bs.modal', async function () {
+        const results = await getImageList('/gallery/ajax-list-image');
+        results.forEach((item, index) => {
+            $('#my-modal-body').append(`
+            <div class="col-md-6 mb-2"><img data-path="${item.path}" src="/${item.path}" class="card-img-top responsive-img" alt="..."></div>
+            `)
+        });
+    });
+
+    $(document).on('dblclick', '#my-modal-body div img', function () {
+        imagePath = $(this).data('path');
+        const url = "/" + imagePath;
+        const currentCursorPos = codeMirror.getCursor();
+        codeMirror.replaceSelection(`![](${url})`);
+        $('#modal-get-image').modal('hide');
+        codeMirror.focus();
+        codeMirror.setCursor({ line: currentCursorPos.line, ch: currentCursorPos.ch + 2 });
+    });
+
+    async function getImageList(url) {
+        const results = await fetch(url);
+        return results.json();
+    }
+</script>

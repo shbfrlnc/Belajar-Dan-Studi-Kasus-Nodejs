@@ -1,0 +1,47 @@
+<form action="/add" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="">Artikel Baru</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="tx-title" class="control-label">Title</label>
+                        <input type="text" name="title" value="" class="form-control" id="tx-title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txa-article-content" class="control-label">Content</label>
+                        <textarea id="txa-article-content" name="content" class="form-control"></textarea>
+                    </div>
+                    <hr>
+                    <a href="/" class="btn btn-success float-right mr-2">Cancel</a>
+                    <button type="submit" class="btn btn-success float-right mr-2">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="modal fade" id="modal-get-image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DblClick to Select</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div id="my-modal-body" class="row">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

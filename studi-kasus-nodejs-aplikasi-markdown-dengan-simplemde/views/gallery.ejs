@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <button id="btn-upload-file" class="btn btn-success">Upload File (PNG, JPG, JPEG, GIF)</button>
+                <hr>
+                <% data.resultTags.forEach((item, index) =>{ %>
+                    <a href="/gallery/?tag=<%= item %>"><span class="badge badge-pill badge-primary"><%= item %></span></a>
+                <% }); %>
+            </div>
+            <hr>
+            <div class="row">
+                <% data.results.forEach((item, index) => { %>
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="/<%= item.path %>" class="card-img-top responsive-img" alt="...">
+                        <hr>
+                        <div class="card-body">
+                            <h5 class="card-text"><%= item.title %></h5>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/gallery/download/<%= item._id %>"><span class="badge badge-pill badge-warning">Download</span></a>
+                            <a href="/gallery/delete/<%= item._id %>"><span class="badge badge-pill badge-danger">Delete</span></a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/gallery/upload" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title-add">Title</label>
+                        <input type="text" class="form-control" id="title-add" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="tx-tags" class="col-md-4 control-label">Tags</label>
+                        <input type="text" name="tags" value="" data-role="tagsinput" id="tx-tags" />
+                    </div>
+                    <div class="form-group">
+                        <input id="fl-file" type="file" name="upload" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "name": "belajar-nodejs-hello-world-tanpa-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

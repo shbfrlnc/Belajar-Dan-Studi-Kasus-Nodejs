@@ -1,0 +1,16 @@
+{
+  "name": "belajar-nodejs-menampilkan-machine-id",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "synchronous": "node tampilkan-machine-id-synchronous.js",
+    "asynchronous": "node tampilkan-machine-id-asynchronous.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-machine-id": "^1.1.12"
+  }
+}
