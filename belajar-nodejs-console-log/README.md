@@ -37,3 +37,9 @@ console.log akan menampilkan "hello world!" saat aplikasi ini dijalankan.
 Perlu diketahui bahwa tanda "//" adalah tanda komentar.
 
 Kode yang ditulis setelah "//" tidak akan dijalankan selama masih pada baris yang sama.
+
+## Traktir
+
+Traktir saya di sini:
+
+https://sociabuzz.com/lsfkrshb/tribe
