@@ -47,10 +47,10 @@ const indexRouter = require('./routes/index.js');
 const aboutRouter = require('./routes/about.js');
 // end: import routes
 
-// begin: gunakan routes sebagai middleware
+// begin: gunakan sebagai routes. parameter pertama adalah path prefix nya
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
-// end: gunakan routes sebagai middleware
+// end: gunakan sebagai routes. parameter pertama adalah path prefix nya
 
 // jalankan server di port 3000
 app.listen(3000, () => {

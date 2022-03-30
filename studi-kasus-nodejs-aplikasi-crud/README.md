@@ -57,7 +57,7 @@ app.use('/public', express.static(__dirname + '/public'));
 // gunakan bodyparser
 app.use(bodyParser.urlencoded());
 
-// jadikan indexRouter middleware
+// jadikan indexRouter sebagai route di path "/"
 app.use('/', indexRouter);
 
 // jalankan server di port 3000
