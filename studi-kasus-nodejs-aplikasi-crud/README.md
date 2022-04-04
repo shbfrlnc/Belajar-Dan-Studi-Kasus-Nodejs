@@ -1,4 +1,5 @@
 # Studi Kasus Node.js Aplikasi CRUD
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -81,10 +82,10 @@ const router = express.Router();
 
 // handle request "/"
 router.get('/', async (req, res, next) => {
-	// dengan async await, list semua todo
+    // dengan async await, list semua todo
     const todos = await ToDo.find({});
 
-	// masukkan data todos ke view yang bernama index.ejs
+    // masukkan data todos ke view yang bernama index.ejs
     res.render('index', {
         results: todos
     })
@@ -92,28 +93,28 @@ router.get('/', async (req, res, next) => {
 
 // handle request "/add"
 router.post('/add', async (req, res, next) => {
-	// bongkar request body menjadi title dan description. ini sesuai dengan value dari attribute name di ejs.
+    // bongkar request body menjadi title dan description. ini sesuai dengan value dari attribute name di ejs.
     const { title, description } = req.body;
 
-	// buat todo baru dengan data barusan
+    // buat todo baru dengan data barusan
     let todo = new ToDo({
         title: title,
         description: description
     });
 
-	// simpan ke database
+    // simpan ke database
     await todo.save();
 
-	// redirect ke home
+    // redirect ke home
     res.redirect('/');
 });
 
 // handle request  "/edit"
 router.post('/edit', async (req, res, next) => {
-	// bongkar request body menjadi id, title, dan description. ini sesuai dengan value dari attribute name di ejs.
+    // bongkar request body menjadi id, title, dan description. ini sesuai dengan value dari attribute name di ejs.
     const { id, title, description } = req.body;
 
-	// update where _id = id set title dan desciption dengan data barusan
+    // update where _id = id set title dan desciption dengan data barusan
     await ToDo.updateOne({
         _id: id
     }, {
@@ -123,19 +124,19 @@ router.post('/edit', async (req, res, next) => {
         }
     })
 
-	// redirect ke homepage
+    // redirect ke homepage
     res.redirect('/');
 });
 
 // handle request "/delete/<id-nya>"
 router.get('/delete/:id', async (req, res, next) => {
 
-	// delete where _id = req.params.id yang dilewatkan dari :id
+    // delete where _id = req.params.id yang dilewatkan dari :id
     await ToDo.deleteOne({
         _id: req.params.id
     });
 
-	// redirect ke homepage
+    // redirect ke homepage
     res.redirect('/');
 });
 
@@ -215,7 +216,7 @@ module.exports = router;
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <form action="/add" method="POST">
@@ -245,7 +246,7 @@ module.exports = router;
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <form action="/edit" method="POST">
@@ -271,9 +272,9 @@ module.exports = router;
     <script src="/public/vendor/jquery/jquery.js"></script>
     <script src="/public/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script>
-    	// ketika elemen dengan class btn-edit-modal diklik
+        // ketika elemen dengan class btn-edit-modal diklik
         $(document).on('click', '.btn-edit-modal', function () {
-        	// ambil datanya: id, title, description, yang tadinya ada di data- attribute
+            // ambil datanya: id, title, description, yang tadinya ada di data- attribute
             $("#id-edit").val($(this).data('id'));
             $("#title-edit").val($(this).data('title'));
             $("#description-edit").val($(this).data('description'));
@@ -284,12 +285,4 @@ module.exports = router;
 </html>
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

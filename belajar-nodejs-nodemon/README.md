@@ -1,4 +1,5 @@
 # Belajar Node.js Nodemon
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -40,7 +41,7 @@ Di bawah ini, ada file package.json yang menunjukkan penggunaan Nodemon.
   "description": "",
   "main": "app.js",
   "scripts": {
-  	//Artinya ketika npm run dev diketikkan pada terminal di folder di mana package.json berada, maka nodemon akan menjalankan 		//dan mengawasi file berekstensi .js dan .html, serta folder bernama views dan file bernama app.js.
+      //Artinya ketika npm run dev diketikkan pada terminal di folder di mana package.json berada, maka nodemon akan menjalankan         //dan mengawasi file berekstensi .js dan .html, serta folder bernama views dan file bernama app.js.
     "dev": "nodemon -e js,html -w views app.js"
   },
   "keywords": [],
@@ -76,12 +77,4 @@ app.listen(3000, () => {
 });
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

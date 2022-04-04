@@ -1,4 +1,5 @@
 # Studi Kasus Node.js Aplikasi Markdown dengan SimpleMDE
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -139,7 +140,7 @@ router.get('/', async (req, res, next) => {
     const articles = await Article.find({});
 
     let finalArticles = articles.map((item) => {
-    	// gunakan modul excerptHtml untuk menggenerate excerpt
+        // gunakan modul excerptHtml untuk menggenerate excerpt
         item.excerpt = excerptHtml(converter.makeHtml(item.content));
         return item;
     });
@@ -235,11 +236,11 @@ Yang perlu Anda perhatikan adalah parameter fungsi render pada beberapa handler:
 ```
 // misal:
 res.render('layout.ejs', {
-	child: 'edit.ejs',
-	clientScript: 'edit.js.ejs',
-	data: {
-		result: article
-	}
+    child: 'edit.ejs',
+    clientScript: 'edit.js.ejs',
+    data: {
+        result: article
+    }
 });
 ```
 
@@ -400,12 +401,4 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
 
 Script itulah yang tugasnya untuk merequest AJAX untuk memilih gambar.
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

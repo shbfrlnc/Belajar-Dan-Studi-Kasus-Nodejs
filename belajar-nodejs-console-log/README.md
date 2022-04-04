@@ -38,12 +38,4 @@ Perlu diketahui bahwa tanda "//" adalah tanda komentar.
 
 Kode yang ditulis setelah "//" tidak akan dijalankan selama masih pada baris yang sama.
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

@@ -1,4 +1,5 @@
 # Belajar Node.js Express Router
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -69,7 +70,7 @@ const router = express.Router();
 
 // handle request "/"
 router.get('/', (req, res) => {
-	// kirim teks bertuliskan "INDEX"
+    // kirim teks bertuliskan "INDEX"
     res.send("INDEX");
 });
 
@@ -95,12 +96,4 @@ router.get('/', (req, res) => {
 module.exports = router;
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

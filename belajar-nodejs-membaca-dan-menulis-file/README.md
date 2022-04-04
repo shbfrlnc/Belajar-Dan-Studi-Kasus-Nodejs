@@ -1,4 +1,5 @@
 # Belajar Node.js Membaca dan Menulis File
+
 ## Pendahuluan
 
 Kali ini kita akan belajar membaca dan menulis file di Node.js.
@@ -28,19 +29,19 @@ const util = require('util');
 // baca file "hello.txt" secara asynchronous
 function readHello() {
     fs.readFile('./hello.txt', 'utf8', function (err, data) {
-    	// tampilkan isinya
+        // tampilkan isinya
         console.log(data);
     });
 }
 
 // baca file "hello.txt" secara asynchronous dengan async await
 async function readHelloAsyncAwait() {
-	// ubah dulu jadi promise
+    // ubah dulu jadi promise
     const readFileAsyncAwait = util.promisify(fs.readFile);
-    
+
     // sekarang baru bisa menggunakan async await
     const hello = await readFileAsyncAwait('./hello.txt', 'utf8');
-    
+
     // tampilkan isinya
     console.log(hello);
 }
@@ -58,9 +59,9 @@ const fs = require('fs');
 
 // baca file "hello.txt"
 function readHello() {
-	// baca secara synchronous. sudah tersedia fungsinya secara default
+    // baca secara synchronous. sudah tersedia fungsinya secara default
     const hello = fs.readFileSync('./hello.txt', 'utf8');
-    
+
     // tampilkan isinya
     console.log(hello);
 }
@@ -85,9 +86,9 @@ function writeHello() {
 
 // tulis file secara asyncrhonous dengan async await
 async function writeHelloAsyncAwait() {
-	// ubah dulu jadi promise
+    // ubah dulu jadi promise
     const writeFileAsyncAwait = util.promisify(fs.writeFile);
-    
+
     // sekarang bisa menggunakan async await
     await writeFileAsyncAwait('./hello-write-file-async-await.txt', "hello world writeFileAsyncAwait");
     console.log('file sudah ditulis.');
@@ -113,15 +114,3 @@ function writeHello() {
 // jalankan
 writeHello();
 ```
-
-
-
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC

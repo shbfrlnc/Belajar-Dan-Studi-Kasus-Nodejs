@@ -1,4 +1,5 @@
 # Belajar Node.js Menampilkan Machine ID
+
 ## Pendahuluan
 
 Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja.
@@ -50,12 +51,4 @@ let mcid = machineIdSync({ original: true });
 console.log(mcid);
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

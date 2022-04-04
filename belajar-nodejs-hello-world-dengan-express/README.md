@@ -1,4 +1,5 @@
 # Belajar Node.js Hello World dengan Express
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -34,7 +35,7 @@ const server = express();
 
 // handle request "/"
 server.get('/', (req, res, next) => {
-	// response dengan teks "Hello World!", kemudian akhiri
+    // response dengan teks "Hello World!", kemudian akhiri
     res.write("Hello World!");
     res.end();
 });
@@ -45,12 +46,4 @@ server.listen(3000, () => {
 });
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

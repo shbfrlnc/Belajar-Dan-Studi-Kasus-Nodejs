@@ -1,4 +1,5 @@
 # Belajar Node.js Hello World Tanpa Framework
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -31,7 +32,7 @@ const http = require('http');
 
 // buat server. dan apapun request nya...
 const server = http.createServer((req, res) => {
-	// response dengan teks hello world. kemudian akhiri
+    // response dengan teks hello world. kemudian akhiri
     res.write("Hello World!");
     res.end();
 });
@@ -42,12 +43,4 @@ server.listen(3000, () => {
 })
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 

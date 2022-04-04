@@ -1,4 +1,5 @@
 # Belajar Node.js Mongoose CRUD
+
 ## Cara Mencoba Kode Ini
 
 Untuk mencoba kode ini, download folder ini.
@@ -238,9 +239,9 @@ app.delete('/delete', async (req, res, next) => {
 // jalankan server di port 3000
 let port = 3000;
 app.listen(port, async () => {
-	// koneksi ke mongodb
+    // koneksi ke mongodb
     mongoose.connect('mongodb://127.0.0.1:27017/belajar-nodejs-mongoose');
-    
+
     // jika user belum ada, generate..
     const user = await User.find({});
     if (user.length == 0) {
@@ -260,12 +261,4 @@ app.listen(port, async () => {
 })
 ```
 
-## Info Tambahan
-
-Traktir Saya:
-
-https://sociabuzz.com/lsfkrshb/tribe
-
-Channel YouTube Saya:
-
-https://www.youtube.com/c/SHBFRLNC
+# 
