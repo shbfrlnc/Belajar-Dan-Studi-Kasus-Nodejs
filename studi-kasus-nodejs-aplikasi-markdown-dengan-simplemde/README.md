@@ -128,12 +128,17 @@ mongoose.connection.on("connected", function () {
 ```
 // file: routes/index.js
 
+// begin: import modules
 const express = require('express');
 const showdown = require('showdown');
 const excerptHtml = require('excerpt-html');
 const Article = require('../models/article');
+// end: import modules
 
+// membuat objek router
 const router = express.Router();
+
+// untuk meng-konversi markdown ke html
 const converter = new showdown.Converter();
 
 router.get('/', async (req, res, next) => {
@@ -145,6 +150,7 @@ router.get('/', async (req, res, next) => {
         return item;
     });
 
+    // tampilkan
     res.render('layout.ejs', {
         child: 'index.ejs',
         clientScript: 'index.js.ejs',
@@ -155,6 +161,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/add', async (req, res, next) => {
+    // tampilkan
     res.render('layout.ejs', {
         child: 'add.ejs',
         clientScript: 'add.js.ejs',
@@ -163,23 +170,29 @@ router.get('/add', async (req, res, next) => {
 });
 
 router.post('/add', async (req, res, next) => {
+    // bongkar request body
     const { title, content } = req.body;
 
+    // buat artikel baru
     let articles = new Article({
         title: title,
         content: content
     });
 
+    // simpan
     await articles.save();
 
+    // redirect
     res.redirect('/');
 });
 
 router.get('/edit/:id', async (req, res, next) => {
+    // dapatkan artikel berdasarkan id
     const article = await Article.findOne({
         _id: req.params.id
     });
 
+    // tampilkan
     res.render('layout.ejs', {
         child: 'edit.ejs',
         clientScript: 'edit.js.ejs',
@@ -190,8 +203,10 @@ router.get('/edit/:id', async (req, res, next) => {
 });
 
 router.post('/edit', async (req, res, next) => {
+    // bongkar request body
     const { id, title, content } = req.body;
 
+    // update artikel berdasarkan id
     await Article.updateOne({
         _id: id
     }, {
@@ -201,14 +216,17 @@ router.post('/edit', async (req, res, next) => {
         }
     })
 
+    // redirect
     res.redirect('/');
 });
 
 router.get('/show/:id', async (req, res, next) => {
+    // dapatkan artikel berdasarkan id
     const article = await Article.findOne({
         _id: req.params.id
     });
 
+    // tampilkan
     res.render('layout.ejs', {
         child: 'show.ejs',
         clientScript: 'show.js.ejs',
@@ -220,7 +238,7 @@ router.get('/show/:id', async (req, res, next) => {
 });
 
 router.get('/delete/:id', async (req, res, next) => {
-
+    // delete artikel berdasarkan id
     await Article.deleteOne({
         _id: req.params.id
     });
@@ -259,14 +277,17 @@ Adapun script ini:
 ```
 // file: routes/gallery.js
 
+// begin: import modules
 const express = require('express');
 const fs = require('fs');
 const File = require('../models/file');
+// end: import modules
 
+// buat objek router
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-    //
+    // listing semua files
     const allFiles = await File.find({});
 
     let resultTags = [];
@@ -278,15 +299,18 @@ router.get('/', async (req, res, next) => {
 
     let uniqueTags = [...new Set(resultTags)];
 
-    //
+    // listing berdasarkan tag
     const resultFiles = await File.find({
         tags: req.query.tag
     });
 
+    // tampilkan
     res.render('layout.ejs', {
         child: 'gallery.ejs',
         clientScript: 'gallery.js.ejs',
         data: {
+            // kalau tag diberikan maka ambil berdasarkan tag
+            // jika tidak tampilkan semuanya
             results: req.query.tag ? resultFiles : allFiles,
             resultTags: uniqueTags
         }
@@ -294,11 +318,13 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/ajax-list-image', async (req, res, next) => {
+    // untuk memberikan output di modal select image nantinya
     const allFiles = await File.find({});
     res.json(allFiles)
 });
 
 router.post('/upload', async (req, res, next) => {
+    // prosedur upload
     if (req.file) {
         const { title, tags } = req.body;
         const newFile = new File({
@@ -313,6 +339,7 @@ router.post('/upload', async (req, res, next) => {
 });
 
 router.get('/delete/:id', async (req, res, next) => {
+    // delete berdasarkan id
     const deleted = await File.findOneAndDelete({
         _id: req.params.id
     });
@@ -323,6 +350,7 @@ router.get('/delete/:id', async (req, res, next) => {
 });
 
 router.get('/download/:id', async (req, res, next) => {
+    // download berdasarkan id
     const found = await File.findOne({
         _id: req.params.id
     });
@@ -343,6 +371,8 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
 <script>
     let imagePath;
     let codeMirror;
+
+    // buat GUI SimpleMDE
     const simplemde = new SimpleMDE({
         element: $("#" + "txa-article-content")[0],
         toolbar: [
@@ -364,6 +394,7 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
             {
                 name: "image-upload",
                 action: function customFunction(editor) {
+                    // custom action untuk tombol image upload
                     $('#modal-get-image').modal({ backdrop: 'static', keyboard: false });
                     codeMirror = editor.codemirror;
                 },
@@ -374,6 +405,7 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
     });
 
     $('#modal-get-image').on('shown.bs.modal', async function () {
+        // untuk menerima daftar gambar dari server
         const results = await getImageList('/gallery/ajax-list-image');
         results.forEach((item, index) => {
             $('#my-modal-body').append(`
@@ -383,6 +415,8 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
     });
 
     $(document).on('dblclick', '#my-modal-body div img', function () {
+        // untuk memilih gambar saat double click 
+        // di daftar gambar (di modal dialog)
         imagePath = $(this).data('path');
         const url = "/" + imagePath;
         const currentCursorPos = codeMirror.getCursor();
@@ -393,6 +427,7 @@ Pada views/add.js.ejs dan views/edit.js.ejs ada script semacam ini:
     });
 
     async function getImageList(url) {
+        // helper untuk fetch url
         const results = await fetch(url);
         return results.json();
     }

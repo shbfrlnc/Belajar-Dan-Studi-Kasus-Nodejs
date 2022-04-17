@@ -27,7 +27,8 @@ Salah satunya adalah untuk menampilkan teks di terminal.
 ```
 // file: app.js
 
-console.log("hello world!"); // print "hello world" ke terminal
+// print "hello world" ke terminal
+console.log("hello world!");
 ```
 
 ## Penjelasan

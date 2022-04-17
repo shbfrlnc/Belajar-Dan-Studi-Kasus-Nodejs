@@ -1,5 +1,27 @@
 # Belajar Node.js Menampilkan Machine ID
 
+## Cara Mencoba Kode Ini
+
+Untuk mencoba kode ini, download folder ini.
+
+Selanjutnya, masuk ke dalam folder ini via terminal.
+
+Selanjutnya, jalankan:
+
+```
+npm install
+```
+
+Selanjutnya, jalankan:
+
+```
+npm run synchronous
+
+// atau
+
+npm run asynchronous
+```
+
 ## Pendahuluan
 
 Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja.
