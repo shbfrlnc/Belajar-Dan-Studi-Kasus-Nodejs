@@ -34,8 +34,8 @@ Berikut ini daftar artikelnya:
 
 - [Studi Kasus Node.js Aplikasi Markdown dengan SimpleMDE](https://github.com/shbfrlnc/Belajar-Dan-Studi-Kasus-Nodejs/tree/main/studi-kasus-nodejs-aplikasi-markdown-dengan-simplemde)
 
-## More Info
+## Info Lebih Lanjut
 
-Support me, my youtube channel, etc:
+TRAKTIR / WEBSITE / YOUTUBE / TWITTER:
 
 - https://shbfrlnc.github.io
