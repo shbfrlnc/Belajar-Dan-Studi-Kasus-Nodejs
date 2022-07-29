@@ -33,9 +33,3 @@ Berikut ini daftar artikelnya:
 - [Studi Kasus Node.js Aplikasi Login Multi Role](https://github.com/shbfrlnc/Belajar-Dan-Studi-Kasus-Nodejs/tree/main/studi-kasus-nodejs-aplikasi-login-multi-role)
 
 - [Studi Kasus Node.js Aplikasi Markdown dengan SimpleMDE](https://github.com/shbfrlnc/Belajar-Dan-Studi-Kasus-Nodejs/tree/main/studi-kasus-nodejs-aplikasi-markdown-dengan-simplemde)
-
-## Info Lebih Lanjut
-
-WEBSITE:
-
-- https://shbfrlnc.github.io
